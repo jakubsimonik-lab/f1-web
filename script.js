@@ -1,3 +1,4 @@
+// Načtení závodů
 async function loadRaces() {
   const response = await fetch("https://ergast.com/api/f1/2025.json");
   const data = await response.json();
@@ -18,5 +19,26 @@ async function loadRaces() {
     `;
 
     container.appendChild(card);
+  });
+}
+
+// Načtení průběžného pořadí jezdců
+async function loadStandings() {
+  const response = await fetch("https://ergast.com/api/f1/2025/driverStandings.json");
+  const data = await response.json();
+  const standings = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+
+  const tableBody = document.querySelector("#standings-table tbody");
+  tableBody.innerHTML = "";
+
+  standings.forEach(driver => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${driver.position}</td>
+      <td>${driver.Driver.givenName} ${driver.Driver.familyName}</td>
+      <td>${driver.Constructors[0].name}</td>
+      <td>${driver.points}</td>
+    `;
+    tableBody.appendChild(row);
   });
 }
