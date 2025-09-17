@@ -20,14 +20,33 @@
   <!-- Hero section -->
   <section class="hero">
     <h2>Vítej na mojí F1 stránce 🚀</h2>
-    <p>Najdeš tu kalendář závodů a výsledky aktuální sezóny.</p>
-    <button onclick="loadRaces()">Načíst závody 2025</button>
+    <p>Najdeš tu kalendář závodů a průběžné pořadí jezdců sezóny 2025.</p>
+    <div class="buttons">
+      <button onclick="loadRaces()">Načíst závody 2025</button>
+      <button onclick="loadStandings()">Načíst tabulku jezdců</button>
+    </div>
   </section>
 
   <!-- Race Calendar -->
   <section id="calendar">
     <h2>📅 Kalendář závodů 2025</h2>
     <div id="race-list" class="cards"></div>
+  </section>
+
+  <!-- Driver Standings -->
+  <section id="standings">
+    <h2>🏆 Průběžné pořadí jezdců 2025</h2>
+    <table id="standings-table">
+      <thead>
+        <tr>
+          <th>Pozice</th>
+          <th>Jezdec</th>
+          <th>Tým</th>
+          <th>Body</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </section>
 
   <!-- Footer -->
