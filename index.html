@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🏎️ Formula 1 Fan Page</h1>
+    <nav>
+      <a href="#">Domů</a>
+      <a href="#calendar">Kalendář</a>
+      <a href="#standings">Tabulka</a>
+    </nav>
+  </header>
+
+  <!-- Hero section -->
+  <section class="hero">
+    <h2>Vítej na mojí F1 stránce 🚀</h2>
+    <p>Najdeš tu kalendář závodů a výsledky aktuální sezóny.</p>
+    <button onclick="loadRaces()">Načíst závody 2025</button>
+  </section>
+
+  <!-- Race Calendar -->
+  <section id="calendar">
+    <h2>📅 Kalendář závodů 2025</h2>
+    <div id="race-list" class="cards"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Moje F1 stránka | Powered by <a href="https://ergast.com/mrd/">Ergast API</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
