@@ -14,6 +14,7 @@ header {
   text-align: center;
   position: sticky;
   top: 0;
+  z-index: 10;
 }
 
 header h1 {
@@ -39,8 +40,12 @@ nav a:hover {
   color: white;
 }
 
-.hero button {
+.hero .buttons {
   margin-top: 1rem;
+}
+
+.hero button {
+  margin: 5px;
   background: #d50000;
   color: white;
   border: none;
@@ -84,6 +89,40 @@ nav a:hover {
 
 .card h3 {
   color: #d50000;
+}
+
+/* Standings */
+#standings {
+  padding: 2rem;
+}
+
+#standings h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#standings-table {
+  width: 90%;
+  margin: auto;
+  border-collapse: collapse;
+  background: #222;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#standings-table th, #standings-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #333;
+}
+
+#standings-table th {
+  background: #d50000;
+  color: white;
+}
+
+#standings-table tr:hover {
+  background: #333;
 }
 
 footer {
