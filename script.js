@@ -18,7 +18,6 @@ async function loadRaces() {
     container.appendChild(card);
   });
 }
-/**
 async function loadStandingsFromAPI() {
   const res = await fetch(`${API_URL}/drivers`);
   const drivers = await res.json();
@@ -35,7 +34,7 @@ async function loadStandingsFromAPI() {
     tbody.appendChild(row);
   });
 }
-*/
+
 function loadStandingsHardcoded() {
   const drivers = [
     { position: 1, name: "Oscar Piastri", team: "McLaren", points: 324 },
