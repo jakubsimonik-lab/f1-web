@@ -520,3 +520,30 @@ footer a:hover {
   background-color: red;
 }
 
+#race-results {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  color: white;
+}
+#race-results th, #race-results td {
+  border: 1px solid red;
+  padding: 8px;
+}
+#race-results th {
+  background-color: red;
+}
+button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: darkred;
+}
