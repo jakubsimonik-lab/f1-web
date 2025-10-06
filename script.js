@@ -91,3 +91,35 @@ function loadQualifying() {
   });
 }
  
+function loadRaceResults() {
+  const results = [
+    { pos: 1, num: 4, driver: "Lando Norris", team: "McLaren-Mercedes", laps: 57, time: "1:42:06.304", start: 1, points: 25 },
+    { pos: 2, num: 1, driver: "Max Verstappen", team: "Red Bull Racing-Honda RBPT", laps: 57, time: "+0.895", start: 3, points: 18 },
+    { pos: 3, num: 63, driver: "George Russell", team: "Mercedes", laps: 57, time: "+8.481", start: 4, points: 15 },
+    { pos: 4, num: 12, driver: "Andrea Kimi Antonelli", team: "Mercedes", laps: 57, time: "+10.135", start: 16, points: 12 },
+    { pos: 5, num: 23, driver: "Alexander Albon", team: "Williams-Mercedes", laps: 57, time: "+12.773", start: 6, points: 10 },
+    { pos: 6, num: 18, driver: "Lance Stroll", team: "Aston Martin Aramco-Mercedes", laps: 57, time: "+17.413", start: 13, points: 8 },
+    { pos: 7, num: 27, driver: "Nico Hülkenberg", team: "Kick Sauber-Ferrari", laps: 57, time: "+18.423", start: 17, points: 6 },
+    { pos: 8, num: 16, driver: "Charles Leclerc", team: "Ferrari", laps: 57, time: "+19.826", start: 7, points: 4 },
+    { pos: 9, num: 81, driver: "Oscar Piastri", team: "McLaren-Mercedes", laps: 57, time: "+20.448", start: 2, points: 2 },
+    { pos: 10, num: 44, driver: "Lewis Hamilton", team: "Ferrari", laps: 57, time: "+22.473", start: 8, points: 1 }
+  ];
+
+  const tbody = document.querySelector("#race-results tbody");
+  tbody.innerHTML = "";
+
+  results.forEach(r => {
+    const row = document.createElement("tr");
+    row.innerHTML = `
+      <td>${r.pos}</td>
+      <td>${r.num}</td>
+      <td>${r.driver}</td>
+      <td>${r.team}</td>
+      <td>${r.laps}</td>
+      <td>${r.time}</td>
+      <td>${r.start}</td>
+      <td>${r.points}</td>
+    `;
+    tbody.appendChild(row);
+  });
+}
