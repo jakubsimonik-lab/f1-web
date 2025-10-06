@@ -1,138 +1,363 @@
 /* Reset */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: Arial, sans-serif;
-  background: #111;
-  color: #eee;
-  line-height: 1.6;
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
 }
 
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  color: #eee;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Header s modernějším designem */
 header {
-  background: #d50000;
-  padding: 1rem;
+  background: linear-gradient(135deg, #d50000 0%, #ff1744 100%);
+  padding: 1.5rem;
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 0 4px 20px rgba(213, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
 }
 
 header h1 {
   margin-bottom: 0.5rem;
   color: white;
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+nav {
+  margin-top: 1rem;
 }
 
 nav a {
-  margin: 0 10px;
+  margin: 0 15px;
   color: white;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 8px 16px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: inline-block;
 }
 
 nav a:hover {
-  text-decoration: underline;
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+  text-decoration: none;
 }
 
+/* Hero sekce s lepšími efekty */
 .hero {
   text-align: center;
-  padding: 2rem;
-  background: url('img/f1-bg.jpg') center/cover no-repeat;
+  padding: 4rem 2rem;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('img/f1-bg.jpg') center/cover no-repeat;
   color: white;
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(213, 0, 0, 0.1) 100%);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.hero h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero .buttons {
   margin-top: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .hero button {
-  margin: 5px;
-  background: #d50000;
+  margin: 10px;
+  background: linear-gradient(135deg, #d50000 0%, #ff1744 100%);
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 15px 30px;
   cursor: pointer;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(213, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .hero button:hover {
-  background: #b00000;
+  background: linear-gradient(135deg, #ff1744 0%, #d50000 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(213, 0, 0, 0.6);
 }
 
-/* Race cards */
+.hero button:active {
+  transform: translateY(-1px);
+}
+
+/* Race cards s lepšími animacemi */
 #calendar {
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
 #calendar h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #d50000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#calendar h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #d50000, transparent);
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .card {
-  background: #222;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-  transition: transform 0.2s ease;
+  background: linear-gradient(135deg, #1a1a1a 0%, #222 100%);
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(213, 0, 0, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(213, 0, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.card:hover::before {
+  left: 100%;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(213, 0, 0, 0.4);
+  border-color: #d50000;
 }
 
 .card h3 {
-  color: #d50000;
+  color: #ff1744;
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
 }
 
-/* Standings */
+.card p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Standings s lepším stylem */
 #standings {
-  padding: 2rem;
+  padding: 3rem 2rem;
+  background: #0a0a0a;
 }
 
 #standings h2 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: #d50000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 #standings-table {
-  width: 90%;
+  width: 95%;
+  max-width: 1200px;
   margin: auto;
   border-collapse: collapse;
-  background: #222;
-  border-radius: 10px;
+  background: #1a1a1a;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 #standings-table th, #standings-table td {
-  padding: 10px;
+  padding: 15px 20px;
   text-align: center;
   border-bottom: 1px solid #333;
 }
 
 #standings-table th {
-  background: #d50000;
+  background: linear-gradient(135deg, #d50000 0%, #ff1744 100%);
   color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 1rem;
+}
+
+#standings-table tr {
+  transition: all 0.3s ease;
 }
 
 #standings-table tr:hover {
-  background: #333;
+  background: #2a2a2a;
+  transform: scale(1.01);
 }
 
+#standings-table tr:nth-child(even) {
+  background: rgba(255,255,255,0.02);
+}
+
+#standings-table td {
+  color: #ddd;
+  font-size: 1rem;
+}
+
+/* První tři místa */
+#standings-table tr:nth-child(2) td:first-child,
+#standings-table tr:nth-child(3) td:first-child,
+#standings-table tr:nth-child(4) td:first-child {
+  font-weight: 700;
+  color: #ffd700;
+}
+
+/* Footer */
 footer {
-  background: #000;
-  padding: 1rem;
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  padding: 2rem;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  border-top: 2px solid #d50000;
 }
 
 footer a {
-  color: #d50000;
+  color: #ff1744;
   text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+footer a:hover {
+  color: #d50000;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  #standings-table {
+    font-size: 0.9rem;
+  }
+  
+  #standings-table th, #standings-table td {
+    padding: 10px 8px;
+  }
 }
