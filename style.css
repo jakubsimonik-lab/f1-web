@@ -505,4 +505,18 @@ footer a:hover {
   nav { flex-direction: column; gap: 1rem; }
   #standings-table th, #standings-table td { padding: 12px 8px; font-size: 0.9rem; }
 }
+#qualifying-table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  text-align: center;
+  color: white;
+}
+#qualifying-table th, #qualifying-table td {
+  border: 1px solid red;
+  padding: 8px;
+}
+#qualifying-table th {
+  background-color: red;
+}
 
